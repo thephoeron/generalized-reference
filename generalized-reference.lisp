@@ -6,6 +6,8 @@
 (defpackage generalized-reference
   (:nicknames gen-ref genref gref)
   (:use c2cl series split-sequence)
+  (:shadowing-import-from series
+           #:series)
   (:import-from serapeum
            #:vref)
   (:import-from alexandria
@@ -25,7 +27,7 @@
            #:type-expand)
   (:export #:ref
            #:$
-           $:%ref))
+           #:%ref))
 
 (in-package :generalized-reference)
 
