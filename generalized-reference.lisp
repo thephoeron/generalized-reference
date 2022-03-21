@@ -84,14 +84,13 @@
   (typecase store
     (property-list (or (getf store (ensure-symbol key :keyword))
                        (getf store key)))
-    (association-list (cadr (assoc store key)))
+    (association-list (cdr (assoc key store)))
     (otherwise (nthcdr (position store key :test #'equalp) store))))
 
 (defmethod %ref ((store list) (key string))
   (typecase store
     (property-list (getf store (make-keyword key)))
-    (association-list (or (cadr (assoc store key))
-                          (cadr (assoc store (ensure-symbol key)))))
+    (association-list (cdr (assoc (ensure-symbol key) store)))
     (otherwise (nthcdr (position key store :test #'string-equal) store))))
 
 (defmethod %ref ((store vector) (index integer))

@@ -35,6 +35,63 @@ Support is included for the following types:
 
 To extend for your custom data types, specialize the generic function `%ref`
 
+## Examples
+
+Download the software to a place ASDF can find it, such as `#P"~/common-lisp"`.
+
+Then in your favourite REPL:
+
+```lisp
+(ql:quickload :generalized-reference)
+
+(use-package :generalized-reference)
+```
+
+### Association Lists
+
+Association Lists allow lookups by quoted-symbol or name-string. Note that the
+name-string is case-sensitive.
+
+Keyword-symbol lookup for Association Lists is not presently supported, but may
+be in a future update.
+
+```lisp
+(defparameter *alist* '((a . 1) (b . 2) (c . 3)))
+
+($ *alist* 'a)
+=> 1
+
+($ *alist* "A")
+=> 1
+
+($ *alist* :a)
+=> NIL
+
+($ *alist* "a")
+=> NIL
+```
+
+### Property Lists
+
+Property Lists allow lookups by keyword-symbol, quoted-symbol, or name-string.
+Note that the name-string is case-sensitive.
+
+```lisp
+(defparameter *plist* '(:a 1 :b 2 :c 3))
+
+($ *plist* :a)
+=> 1
+
+($ *plist* 'a)
+=> 1
+
+($ *plist* "A")
+=> 1
+
+($ *plist* "a")
+=> NIL
+```
+
 ## License
 
 Copyright &copy; 2022, "the Phoeron" Colin J.E. Lupton
