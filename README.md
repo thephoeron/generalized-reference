@@ -92,6 +92,61 @@ Note that the name-string is case-sensitive.
 => NIL
 ```
 
+### Hash Tables
+
+Hash Tables currently support lookup by their internal hash-key. To allow lookup
+for string-based hash-keys, remember to set the equality test to `equal` when
+defining the hash table.
+
+When a hash-key isn't found in a hash table, `ref` returns the keyword symbol
+`:NOT-FOUND`, while returning `NIL` means the hash-key is present in the table
+but has its value set to `NIL`.
+
+Note: For this example we're also going to use the `DICT` constructor function
+from the Serapeum library, a dependency of generalized-reference already
+available in your Lisp Image. By default it uses `equal` comparison for hash-key
+lookups, which is exactly what we need.
+
+```lisp
+(use-package :serapeum)
+
+(defparameter *hash* (dict :a 1 :b 2 :c 3 "D" 4))
+
+($ *hash* :a)
+=> 1
+
+($ *hash* "D")
+=> 4
+
+($ *hash* :d)
+=> :NOT-FOUND
+```
+
+### Vectors
+
+Vectors allow lookup by index.
+
+```lisp
+(defparameter *vector* (vector 1 2 3 4))
+
+($ *vector* 0)
+=> 1
+```
+
+### Arrays
+
+Arrays allow lookup by a list of indices.
+
+```lisp
+(defparameter *array* (make-array '(2 2) :initial-contents '((1 2) (3 4))))
+
+($ *array* '(0 0))
+=> 1
+
+($ *array* '(1 1))
+=> 4
+```
+
 ## License
 
 Copyright &copy; 2022, "the Phoeron" Colin J.E. Lupton
