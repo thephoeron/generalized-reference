@@ -1,5 +1,8 @@
 # GENERALIZED-REFERENCE
 
+[![Quicklisp](http://quickdocs.org/badge/generalized-reference.svg)](http://quickdocs.org/generalized-reference/)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
 Generalized reference over structured data by pairwise reduction of arbitrary
 place identifiers for Common Lisp.
 
@@ -39,7 +42,7 @@ Support is included for the following types:
 - arrays by indices
 - series objects by selection, index, range, or function-key
 
-To extend for your custom data types, specialize the generic function `%ref`
+To extend for your custom data types, specialize the generic function `%ref`.
 
 ## Examples
 
