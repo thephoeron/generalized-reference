@@ -11,6 +11,12 @@ from another language or format that may not follow Lisp style conventions and
 best-practices. Support is also included for the SERIES library because I happen
 to use it a lot.
 
+Inspired by, and an alternative to, [ACCESS][] and [SERAPEUM][]'s `vref` and
+`href` forms.
+
+[ACCESS]: https://github.com/sharplispers/access
+[SERAPEUM]: https://github.com/ruricolist/serapeum
+
 ## Usage
 
 Reference a place by the sequence of place identifiers in desending order, using
