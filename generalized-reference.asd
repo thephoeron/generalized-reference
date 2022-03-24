@@ -6,7 +6,7 @@
 (defpackage generalized-reference/asdf
   (:use cl asdf uiop))
 
-(in-package generalized-reference/asdf)
+(in-package :generalized-reference/asdf)
 
 (defsystem generalized-reference
   :name "GENERALIZED-REFERENCE"
