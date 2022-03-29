@@ -27,9 +27,15 @@
            #:type-expand)
   (:export #:ref
            #:$
-           #:%ref))
+           #:%ref
+           #:series-p))
 
 (in-package :generalized-reference)
+
+(defun series-p (obj)
+  (typecase obj
+    (series t)
+    (otherwise nil)))
 
 (defclass pseudosymbol ()
   ((name :type string-designator :initarg :name :accessor pseudosymbol-name)
