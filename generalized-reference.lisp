@@ -63,10 +63,12 @@
 (defmethod %ref ((psym pseudosymbol) (sym-name string))
   (%ref psym (make-keyword sym-name)))
 
-(defmethod %ref ((store pathname) (fragment string))
-  (let ((rabbit-hole (mapcar #'make-keyword (split-sequence "/" fragment))))
-    (with-open-file (f store :direction :input)
-      (reduce #'getf (%ref (read f) (car rabbit-hole)) (cdr rabbit-hole)))))
+;; Disable pathname and file reference, it still needs some work
+
+;; (defmethod %ref ((store pathname) (fragment string))
+;;   (let ((rabbit-hole (mapcar #'make-keyword (split-sequence "/" fragment))))
+;;     (with-open-file (f store :direction :input)
+;;       (reduce #'getf (%ref (read f) (car rabbit-hole)) (cdr rabbit-hole)))))
 
 (defmethod %ref ((store standard-object) (slot-name symbol))
   (if (slot-boundp store slot-name)
@@ -85,7 +87,7 @@
     (property-list (or (getf store (ensure-symbol key :keyword))
                        (getf store key)))
     (association-list (cdr (assoc key store)))
-    (otherwise (nthcdr (position store key :test #'equalp) store))))
+    (otherwise (nthcdr (position key store :test #'equalp) store))))
 
 (defmethod %ref ((store list) (key string))
   (typecase store
