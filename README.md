@@ -14,8 +14,8 @@ from another language or format that may not follow Lisp style conventions and
 best-practices. Support is also included for the SERIES library because I happen
 to use it a lot.
 
-Inspired by, and an alternative to, [ACCESS][] and [SERAPEUM][]'s `vref` and
-`href` forms.
+Inspired by, and an alternative to, the [ACCESS][] library, and [SERAPEUM][]'s
+`vref` and `href` forms.
 
 [ACCESS]: https://github.com/sharplispers/access
 [SERAPEUM]: https://github.com/ruricolist/serapeum
@@ -156,9 +156,24 @@ Arrays allow lookup by a list of indices.
 => 4
 ```
 
+## Support
+
+This library has been built and tested successfully on macOS using the following
+Lisp implementations:
+
+- LispWorks 8.0.0 (64-bit)
+- SBCL 2.2.4
+- Clozure-CL 1.12.1
+- GNU CLISP 2.49.92
+- ECL 21.2.1
+
+And builds with warnings on:
+
+- ABCL 1.9.0
+
 ## License
 
 Copyright &copy; 2022, "the Phoeron" Colin J.E. Lupton
 
-Released under the MIT License. See [generalized-reference/LICENSE.md](LICENSE.md)
+Released under the MIT License. See [generalized-reference/LICENSE](./LICENSE)
 for more information.
