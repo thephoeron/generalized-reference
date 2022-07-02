@@ -52,7 +52,7 @@
          (the-sym (find-symbol symbolname (package-name pkg))))
     (make-instance 'pseudosymbol
       :name (symbol-name the-sym)
-      :package (package-name (symbol-package the-sym))
+      :package-name (package-name (symbol-package the-sym))
       :value (symbol-value the-sym)
       :function (symbol-function the-sym)
       :plist (symbol-plist the-sym))))

@@ -156,20 +156,22 @@ Arrays allow lookup by a list of indices.
 => 4
 ```
 
-## Support
+## Platform Support
 
 This library has been built and tested successfully on macOS using the following
 Lisp implementations:
 
-- LispWorks 8.0.0 (64-bit)
-- SBCL 2.2.4
+- LispWorks 8.0.1 (64-bit)
+- Allegro CL 10.1
+- SBCL 2.2.5
 - Clozure-CL 1.12.1
 - GNU CLISP 2.49.92
 - ECL 21.2.1
-
-And builds with warnings on:
-
 - ABCL 1.9.0
+
+And *does not build* due to dependency failure on:
+
+- CLASP CL 1.0.0
 
 ## License
 
